@@ -19,7 +19,12 @@
             id="fpd-target" 
             class="fpd-topbar fpd-shadow-3 fpd-views-inside-right">
         </div>
-
+<style>
+  .fpd-element-text.engraving {
+    mix-blend-mode: screen;  /* of 'multiply', afhankelijk van wat je wil bereiken */
+    opacity: 0.7;
+  }
+</style>
         <script>
 
             const appOptions = {
@@ -71,7 +76,15 @@
                 pixabayApiKey: '',
                 pixabayLang: 'en',
                 pixabayHighResImages: false,
-                elementParameters: {
+                elementParameters: {    text: {
+      colorLinkGroup: "engraving",
+      removable: true,
+      resizable: true,
+      draggable: true,
+      rotatable: true,
+      boundingBox: "custom",
+      isEngraving: true   // <-- Belangrijk!
+
 
                 },
                 customImageParameters: {
@@ -84,10 +97,19 @@
                     autoSelect: true,
                     advancedEditing: true
                 },
+
+
+  customTextParameters: {
+    isEngraving: true     // <-- Activeert engraving bij aangepaste tekst
+  }
+
+
+
                 customTextParameters: {
                     autoCenter: true,
                     draggable: true,
                     removable: true,
+		    isEngraving: true     // <-- Activeert engraving bij aangepaste tekst
                     colors: true,
                 },
             }
